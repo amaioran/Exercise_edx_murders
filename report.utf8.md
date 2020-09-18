@@ -1,13 +1,11 @@
 ---
 title: "Report on Gun Murders"
 author: "Rafael Irizarry"
-date: "`r format(Sys.Date())`"
+date: "2020-09-18"
 output: "pdf_document"
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+
 
 ## Introduction
 
@@ -15,13 +13,15 @@ This is a report on 2010 gun murder rates obtained from FBI reports. The origina
 
 We are going to use the following library:
 
-```{r loading-libs, message=FALSE}
+
+```r
 library(tidyverse)
 ```
   
 and load the data we already wrangled:
 
-```{r}
+
+```r
 load("rda/murders.rda")
 ```
 
@@ -29,12 +29,7 @@ load("rda/murders.rda")
 
 We note the large state to state variability by generating a barplot showing the murder rate by state:
 
-```{r murder-rate-by-state, echo=FALSE}
-murders %>% mutate(abb = reorder(abb, rate)) %>%
-  ggplot(aes(abb, rate)) +
-  geom_bar(width = 0.5, stat = "identity", color = "black") +
-  coord_flip()
-```
+![](report_files/figure-latex/murder-rate-by-state-1.pdf)<!-- --> 
 #TEST
 #TEST
 #TEST
